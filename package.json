@@ -1,0 +1,18 @@
+{
+  "name": "keyboard-shortcut-string",
+  "version": "1.0.0",
+  "description": "Creates a canonical keyboard shortcut string from a shortcut source string",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./index.spec.js"
+  },
+  "keywords": [
+    "keyboard",
+    "shortcut"
+  ],
+  "author": "Dan Dean",
+  "license": "MIT",
+  "devDependencies": {
+    "mocha": "^2.2.5"
+  }
+}
