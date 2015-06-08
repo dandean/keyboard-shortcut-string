@@ -2,6 +2,10 @@
 
 Creates a canonical keyboard shortcut string from the given shortcut string input.
 
+This module *does not* bind shortcuts to keyboard events – its only job is to
+parse shortcut strings, and return predictable results. A good use for this
+module would be to support a keystroke module's event handler mapping.
+
 **Examples:**
 
 ```js
