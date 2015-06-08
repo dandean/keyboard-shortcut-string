@@ -1,7 +1,4 @@
-var canonicalMap = {
-  // Pre-declare standalone "+" key removes a bunch of logic:
-  '+': '+'
-};
+var canonicalMap = {};
 var modifiers = ['shift', 'ctrl', 'alt', 'meta'];
 
 /**
@@ -12,18 +9,17 @@ var modifiers = ['shift', 'ctrl', 'alt', 'meta'];
  */
 function getCanonicalShortcut(shortcut) {
   // Remove all whitespace from the shortcut:
-  shortcut = shortcut.replace(/\s+/g, '').toLowerCase();
-
-  if (/\+\+/.test(shortcut)) {
-    throw new Error('Shortcut may not use "+" with any other keys');
-  }
+  shortcut = shortcut
+    .trim()
+    .replace(/\s+/g, ' ')
+    .toLowerCase();
 
   if (!canonicalMap[shortcut]) {
     var key;
     var mods = {};
 
     // Separate modifiers from keys:
-    shortcut.split('+').forEach(function(part){
+    shortcut.split(' ').forEach(function(part){
       if (modifiers.indexOf(part) > -1) {
         mods[part] = true;
 
@@ -50,7 +46,7 @@ function getCanonicalShortcut(shortcut) {
     }
 
     // Join all keys into canonical format and cache:
-    canonicalMap[shortcut] = keys.join('+');
+    canonicalMap[shortcut] = keys.join(' ');
   }
 
   return canonicalMap[shortcut];

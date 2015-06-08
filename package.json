@@ -1,6 +1,6 @@
 {
   "name": "keyboard-shortcut-string",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "Creates a canonical keyboard shortcut string from a shortcut source string",
   "main": "index.js",
   "scripts": {

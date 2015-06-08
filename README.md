@@ -5,23 +5,23 @@ Creates a canonical keyboard shortcut string from the given shortcut string inpu
 **Examples:**
 
 ```js
-console.log(getCanonicalShortcut('ctrl+s'));
-// 'ctrl+s'
+console.log(getCanonicalShortcut('ctrl s'));
+// 'ctrl s'
 
-console.log(getCanonicalShortcut('s+ctrl'));
-// 'ctrl+s'
+console.log(getCanonicalShortcut('s ctrl'));
+// 'ctrl s'
 
-console.log(getCanonicalShortcut('s + ctrl'));
-// 'ctrl+s'
+console.log(getCanonicalShortcut('s   ctrl'));
+// 'ctrl s'
 
-console.log(getCanonicalShortcut('shift+ctrl+s'));
-// 'shift+ctrl+s'
+console.log(getCanonicalShortcut('shift ctrl s'));
+// 'shift ctrl s'
 
-console.log(getCanonicalShortcut('ctrl+shift+s'));
-// 'shift+ctrl+s'
+console.log(getCanonicalShortcut('ctrl shift s'));
+// 'shift ctrl s'
 
-console.log(getCanonicalShortcut('s + ctrl + shift'));
-// 'shift+ctrl+s'
+console.log(getCanonicalShortcut('S   CTRL   SHIFT'));
+// 'shift ctrl s'
 ```
 
 ## Modifier Keys
@@ -36,7 +36,7 @@ the front of the result.
 
 ## Non-modifier Keys
 
-Only one non-modifier key component is allowed: `"alt+s"` works, but `"alt+s+h"`
+Only one non-modifier key component is allowed: `"alt s"` works, but `"alt s h"`
 will throw.
 
 Non-modifier keys can be almost anything: "s", "S", "space", "ESC", and lowercase

@@ -33,57 +33,45 @@ describe('shortcut string', function () {
   });
 
   it('orders named modifier keys at front of shortcut', function() {
-    var canonicalOrder = 'shift+ctrl+alt+meta';
+    var canonicalOrder = 'shift ctrl alt meta';
     shortcut = getShortcutString(canonicalOrder);
     assert.equal(canonicalOrder, shortcut);
 
-    keystroke = 'meta+alt+ctrl+shift';
+    keystroke = 'meta alt ctrl shift';
     shortcut = getShortcutString(keystroke);
     assert.equal(canonicalOrder, shortcut);
 
-    keystroke = 'meta+alt+ctrl+shift+s';
+    keystroke = 'meta alt ctrl shift s';
     shortcut = getShortcutString(keystroke);
-    assert.equal(canonicalOrder + '+s', shortcut);
+    assert.equal(canonicalOrder + ' s', shortcut);
 
-    keystroke = 'meta+alt+ctrl+shift+esc';
+    keystroke = 'meta alt ctrl shift esc';
     shortcut = getShortcutString(keystroke);
-    assert.equal(canonicalOrder + '+esc', shortcut);
+    assert.equal(canonicalOrder + ' esc', shortcut);
   });
 
   it('throws if more than one non-modifier key is present in shortcut', function() {
     assert.throws(function() {
-      getShortcutString('x+y');
+      getShortcutString('x y');
     });
     assert.throws(function() {
-      getShortcutString('x+6');
+      getShortcutString('x 6');
     });
 
     assert.throws(function() {
-      getShortcutString('alt+shift+6+f');
+      getShortcutString('alt shift 6 f');
     });
   });
 
   it('ignores whitespace', function() {
-    keystroke = 'shift + ctrl + alt + meta + s';
+    keystroke = '  shift  ctrl  alt   meta   s  ';
     shortcut = getShortcutString(keystroke);
-    assert.equal('shift+ctrl+alt+meta+s', shortcut);
+    assert.equal('shift ctrl alt meta s', shortcut);
   });
 
   it('ignores case', function() {
-    keystroke = 'SHIFT+ESC';
+    keystroke = 'SHIFT ESC';
     shortcut = getShortcutString(keystroke);
-    assert.equal('shift+esc', shortcut);
-  })
-
-  it('understands standalone "+" key', function() {
-    keystroke = '+';
-    shortcut = getShortcutString(keystroke);
-    assert.equal('+', shortcut);
-  });
-
-  it('throws if "+" is used with any other key', function() {
-    assert.throws(function() {
-      getShortcutString('alt++');
-    })
+    assert.equal('shift esc', shortcut);
   })
 });
