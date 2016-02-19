@@ -1,6 +1,6 @@
 {
   "name": "keyboard-shortcut-string",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Creates a canonical keyboard shortcut string from a shortcut source string",
   "main": "index.js",
   "scripts": {
@@ -12,6 +12,10 @@
   ],
   "author": "Dan Dean",
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/dandean/keyboard-shortcut-string.git"
+  },
   "devDependencies": {
     "mocha": "^2.2.5"
   }
