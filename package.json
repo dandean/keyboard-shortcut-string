@@ -17,6 +17,6 @@
     "url" : "https://github.com/dandean/keyboard-shortcut-string.git"
   },
   "devDependencies": {
-    "mocha": "^3.2.0"
+    "mocha": "^3.5.2"
   }
 }
